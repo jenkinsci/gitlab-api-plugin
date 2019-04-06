@@ -23,6 +23,7 @@
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
+
     <!-- Assuming you want to host on @jenkinsci:
     <url>https://wiki.jenkins.io/display/JENKINS/TODO+Plugin</url>
     <scm>
@@ -31,6 +32,15 @@
         <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
     </scm>
     -->
+
+    <dependencies>
+        <dependency>
+            <groupId>org.gitlab4j</groupId>
+            <artifactId>gitlab4j-api</artifactId>
+            <version>4.9.19</version>
+        </dependency>
+    </dependencies>
+
     <repositories>
         <repository>
             <id>repo.jenkins-ci.org</id>
