@@ -13,6 +13,7 @@ before_deploy:
 - git config --local user.name "$user"
 - git config --local user.email "$email"
 - export TAGS=$(git tag)
+- echo $TAGS
 - export LATEST_TAG=$(echo ${TAGS} | awk '{print $NF}')
 - echo $LATEST_TAG
 - chmod +x genTag.sh
