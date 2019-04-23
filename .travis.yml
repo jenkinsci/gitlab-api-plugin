@@ -28,10 +28,9 @@ deploy:
     - target/gitlab-api.jar
     on:
       repo: jenkins-gitlab/gitlab-api-plugin
-      tags: true
 
   - provider: script
     script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy -DskipTests"
     skip_cleanup: true
     on:
-      tags: true
+      repo: jenkins-gitlab/gitlab-api-plugin
