@@ -12,7 +12,8 @@ script: mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 before_deploy:
 - git config --local user.name "$user"
 - git config --local user.email "$email"
-- export LATEST_TAG=$(git describe --tags)
+- export TAGS=$(git tag)
+- export LATEST_TAG=$(echo ${TAGS} | awk '{print $NF}')
 - echo $LATEST_TAG
 - chmod +x genTag.sh
 - export TRAVIS_TAG=$(./genTag.sh ${LATEST_TAG})
