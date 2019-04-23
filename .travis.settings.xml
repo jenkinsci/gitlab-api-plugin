@@ -1,12 +1,9 @@
-<Settings Xmlns="Http://Maven.Apache.Org/SETTINGS/1.0.0"
-          Xmlns:Xsi="Http://Www.W3.Org/2001/XMLSchema-Instance"
-          Xsi:SchemaLocation="Http://Maven.Apache.Org/SETTINGS/1.0.0
-                      Http://Maven.Apache.Org/Xsd/Settings-1.0.0.Xsd">
-    <Servers>
-        <Server>
-            <Id>maven.jenkins-ci.org</Id>
-            <Username>${env.USERNAME}</Username>
-            <Password>${env.PASSWORD}</Password>
-        </Server>
-    </Servers>
-</Settings>
+<settings >
+    <servers>
+        <server>
+            <id>maven.jenkins-ci.org</id>
+            <username>${env.USERNAME}</username>
+            <password>${env.PASSWORD}</password>
+        </server>
+    </servers>
+</settings>
