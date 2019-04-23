@@ -1,0 +1,37 @@
+sudo: false
+language: java
+services: docker
+
+branches:
+  only:
+  - master
+
+install: true
+script: mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+before_deploy:
+- git config --local user.name "$user"
+- git config --local user.email "$email"
+- export LATEST_TAG=$(git describe --tags)
+- echo $LATEST_TAG
+- chmod +x genTag.sh
+- export TRAVIS_TAG=$(./genTag.sh ${LATEST_TAG})
+- git tag $TRAVIS_TAG
+
+deploy:
+  - provider: releases
+    api_key:
+      secure: VZvvgL4BgqHUR7mF85i66xs64JMwod0n7MKaHuITwhBS6oISSJiKJ0zBGj65VWgFOuIFGY+GgNMt9Z13ZUbDifq2yBQuXh5DMH7z0WdujRGcDdd76msib1tYU7beybge0k1kZ6ENhfZI880w4oxPZGtSoTW8q2/tQbxQYntDhEqr7BgJH7rChjjRZLCa8dg/NceIzCFMSk11QFkQOXRB/1hICuIDUJQcgKpnyJKvBJkCtlyqKwG0Ad1DuyX5ExVlov5lp1sTbnGlrEkT35MDgfs24qw5SfdXjmQoWhR/BRs+WrfRFB6I8U4el60OcxehB5SRSwuVRKnkj+bFavpl/DrrftMwcyEz9NGJ1MwLX8UZHzCLtmRFWjCkVzlqag4XoYGonoRMvja5DhC2YSaBcatwMjZ/UJ3DbqlCJXv17en+eaQGQLu6wmeQmOY4gkw8NgKcQgSGsKrltCj05At9ousJ3PKuY3NuPP4H1f5Yn6klScxz3Wj8V4cqozLZi52pexeyccKzkiEvRhoge7iP87iqPqRR6mIopXgPwkcxhGLDovmLQ71KN3rlEedbRCMnYoWzmq0RBkfS8SAvcLR3EpHqMH4NkN93kg4A5xFeI1xD66BjXjMFEaeNKcNwgxSj7WOsscjtB0mEv8cvZifzvstKDcVBikL+ZWzmzAU1Iys=
+    skip_cleanup: true
+    file:
+    - target/gitlab-api.hpi
+    - target/gitlab-api.jar
+    on:
+      repo: jenkins-gitlab/gitlab-api-plugin
+      tags: true
+
+  - provider: script
+    script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy -DskipTests"
+    skip_cleanup: true
+    on:
+      tags: true
