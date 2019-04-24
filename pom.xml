@@ -10,7 +10,7 @@
 
     <groupId>io.jenkins.plugins</groupId>
     <artifactId>gitlab-api</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>hpi</packaging>
 
     <properties>
@@ -68,20 +68,20 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>animal-sniffer-maven-plugin</artifactId>
-                <version>1.17</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>animal-sniffer-maven-plugin</artifactId>
+                    <version>1.17</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 
     <dependencies>
-
         <dependency>
             <groupId>org.gitlab4j</groupId>
             <artifactId>gitlab4j-api</artifactId>
