@@ -10,7 +10,7 @@
 
     <groupId>io.jenkins.plugins</groupId>
     <artifactId>gitlab-api</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>hpi</packaging>
 
     <properties>
@@ -44,8 +44,7 @@
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>3.0.0-M1</version>
                 <executions>
-                    <execution>
-                        <id>enforce-bytecode-version</id>
+                    <execution>                        <id>enforce-bytecode-version</id>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
@@ -69,6 +68,14 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>animal-sniffer-maven-plugin</artifactId>
+                <version>1.17</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -78,7 +85,7 @@
         <dependency>
             <groupId>org.gitlab4j</groupId>
             <artifactId>gitlab4j-api</artifactId>
-            <version>4.10.0</version>
+            <version>4.10.4</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
