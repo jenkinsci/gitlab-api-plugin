@@ -3,3 +3,4 @@ work
 *.iml
 .idea
 .bashrc
+setVersion.sh
