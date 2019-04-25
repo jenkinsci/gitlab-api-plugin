@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 language: java
 services: docker
 
@@ -9,8 +9,7 @@ branches:
 install: true
 script: mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
-before_deploy:
-  - ./genTag.sh
+before_deploy: "sudo ./genTag.sh"
 
 deploy:
   - provider: releases
