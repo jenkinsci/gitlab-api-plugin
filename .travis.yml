@@ -10,7 +10,7 @@ install: true
 script: mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 before_deploy:
-  - bash genTag.sh
+  - ./genTag.sh
 
 deploy:
   - provider: releases
