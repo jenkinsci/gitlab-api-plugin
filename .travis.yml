@@ -9,28 +9,26 @@ branches:
 install: true
 script: mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
-jobs:
-  include:
-    - stage: deploy to github releases
-      if: env(TRAVIS_TAG) != env(PREV_TAG) AND env(IS_SNAPSHOT) == no
-      script: ./genTag.sh
-      deploy:
-        provider: releases
-        api_key:
-          secure: VZvvgL4BgqHUR7mF85i66xs64JMwod0n7MKaHuITwhBS6oISSJiKJ0zBGj65VWgFOuIFGY+GgNMt9Z13ZUbDifq2yBQuXh5DMH7z0WdujRGcDdd76msib1tYU7beybge0k1kZ6ENhfZI880w4oxPZGtSoTW8q2/tQbxQYntDhEqr7BgJH7rChjjRZLCa8dg/NceIzCFMSk11QFkQOXRB/1hICuIDUJQcgKpnyJKvBJkCtlyqKwG0Ad1DuyX5ExVlov5lp1sTbnGlrEkT35MDgfs24qw5SfdXjmQoWhR/BRs+WrfRFB6I8U4el60OcxehB5SRSwuVRKnkj+bFavpl/DrrftMwcyEz9NGJ1MwLX8UZHzCLtmRFWjCkVzlqag4XoYGonoRMvja5DhC2YSaBcatwMjZ/UJ3DbqlCJXv17en+eaQGQLu6wmeQmOY4gkw8NgKcQgSGsKrltCj05At9ousJ3PKuY3NuPP4H1f5Yn6klScxz3Wj8V4cqozLZi52pexeyccKzkiEvRhoge7iP87iqPqRR6mIopXgPwkcxhGLDovmLQ71KN3rlEedbRCMnYoWzmq0RBkfS8SAvcLR3EpHqMH4NkN93kg4A5xFeI1xD66BjXjMFEaeNKcNwgxSj7WOsscjtB0mEv8cvZifzvstKDcVBikL+ZWzmzAU1Iys=
-          skip_cleanup: true
-          name: $TRAVIS_TAG
-          body: $TRAVIS_COMMIT_MESSAGE
-          file:
-            - target/gitlab-api.hpi
-            - target/gitlab-api.jar
-          on:
-            repo: jenkins-gitlab/gitlab-api-plugin
-    - stage: deploy to maven
-      if: env(IS_SNAPSHOT) == yes
-      deploy:
-        provider: script
-        script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn clean deploy -DskipTests=true"
-        skip_cleanup: true
-        on:
-          repo: jenkins-gitlab/gitlab-api-plugin
+before_deploy:
+  - bash genTag.sh
+
+deploy:
+  - provider: releases
+    api_key:
+      secure: VZvvgL4BgqHUR7mF85i66xs64JMwod0n7MKaHuITwhBS6oISSJiKJ0zBGj65VWgFOuIFGY+GgNMt9Z13ZUbDifq2yBQuXh5DMH7z0WdujRGcDdd76msib1tYU7beybge0k1kZ6ENhfZI880w4oxPZGtSoTW8q2/tQbxQYntDhEqr7BgJH7rChjjRZLCa8dg/NceIzCFMSk11QFkQOXRB/1hICuIDUJQcgKpnyJKvBJkCtlyqKwG0Ad1DuyX5ExVlov5lp1sTbnGlrEkT35MDgfs24qw5SfdXjmQoWhR/BRs+WrfRFB6I8U4el60OcxehB5SRSwuVRKnkj+bFavpl/DrrftMwcyEz9NGJ1MwLX8UZHzCLtmRFWjCkVzlqag4XoYGonoRMvja5DhC2YSaBcatwMjZ/UJ3DbqlCJXv17en+eaQGQLu6wmeQmOY4gkw8NgKcQgSGsKrltCj05At9ousJ3PKuY3NuPP4H1f5Yn6klScxz3Wj8V4cqozLZi52pexeyccKzkiEvRhoge7iP87iqPqRR6mIopXgPwkcxhGLDovmLQ71KN3rlEedbRCMnYoWzmq0RBkfS8SAvcLR3EpHqMH4NkN93kg4A5xFeI1xD66BjXjMFEaeNKcNwgxSj7WOsscjtB0mEv8cvZifzvstKDcVBikL+ZWzmzAU1Iys=
+    skip_cleanup: true
+    name: $TRAVIS_TAG
+    body: $TRAVIS_COMMIT_MESSAGE
+    file:
+      - target/gitlab-api.hpi
+      - target/gitlab-api.jar
+    on:
+      repo: jenkins-gitlab/gitlab-api-plugin
+
+#  skipping uploading to maven because not authorized to publish release versions yet
+
+#  - provider: script
+#    script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn clean deploy -DskipTests=true"
+#    skip_cleanup: true
+#    on:
+#      repo: jenkins-gitlab/gitlab-api-plugin

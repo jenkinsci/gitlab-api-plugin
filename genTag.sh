@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-echo ${env.user}
-echo ${env.email}
-
-git config --local user.name "${env.user}"
-git config --local user.email "${env.email}"
+git config --local user.name "${user}"
+git config --local user.email "${email}"
 
 export TAGS=$(git tag)
 
