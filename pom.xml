@@ -14,18 +14,26 @@
     <packaging>hpi</packaging>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <jenkins.version>2.60.3</jenkins.version>
         <java.level>8</java.level>
-        <no-test-jar>true</no-test-jar>
     </properties>
 
     <name>Gitlab API Plugin</name>
     <description>Wraps Gitlab API into a plugin</description>
+    <url>https://github.com/jenkins-gitlab/gitlab-api-plugin</url>
+
+    <issueManagement>
+        <url>https://github.com/jenkins-gitlab/gitlab-api-plugin/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
 
     <licenses>
         <license>
             <name>MIT License</name>
             <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
 
@@ -44,7 +52,8 @@
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>3.0.0-M1</version>
                 <executions>
-                    <execution>                        <id>enforce-bytecode-version</id>
+                    <execution>
+                        <id>enforce-bytecode-version</id>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
@@ -68,7 +77,22 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -79,7 +103,6 @@
             </plugins>
         </pluginManagement>
     </build>
-
 
     <dependencies>
         <dependency>
