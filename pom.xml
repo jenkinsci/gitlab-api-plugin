@@ -21,7 +21,7 @@
     </properties>
 
     <name>Gitlab API Plugin</name>
-    <description>Wraps Gitlab API into a plugin</description>
+    <description>Wraps Gitlab4J API into a plugin</description>
     <url>https://github.com/jenkins-gitlab/gitlab-api-plugin</url>
 
     <issueManagement>
@@ -37,13 +37,19 @@
         </license>
     </licenses>
 
-    <!-- Assuming you want to host on @jenkinsci:
-    <url>https://wiki.jenkins.io/display/JENKINS/TODO+Plugin</url>
+    <developers>
+        <developer>
+            <id>baymac</id>
+            <name>Parichay Barpanda</name>
+            <email>parichay.barpanda@gmail.com</email>
+        </developer>
+    </developers>
+
     <scm>
         <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
-    </scm> -->
+    </scm>
 
     <build>
         <plugins>

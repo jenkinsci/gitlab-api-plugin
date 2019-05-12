@@ -4,6 +4,5 @@ Wraps [Gitlab Java API](https://github.com/gmessner/gitlab4j-api/) by [@gmessner
 Install plugin with 
 
 ```
-mvn clean install -DskipTests
-
+mvn clean install -DskipTest
 ```

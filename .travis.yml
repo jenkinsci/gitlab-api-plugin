@@ -16,7 +16,7 @@ before_deploy:
 -  export TAGS=$(git tag)
 
 -  export PREV_TAG=$(echo ${TAGS} | awk '{print $NF}')
-- echo "previous_tag=${PREV_TAG}"
+-  echo "previous_tag=${PREV_TAG}"
 
 -  export VERSION=$(./getVersion.sh)
 -  echo "version=${VERSION}"
@@ -42,7 +42,7 @@ deploy:
     on:
       repo: jenkins-gitlab/gitlab-api-plugin
 
-#  skipping uploading to maven because not authorized to publish release versions yet
+#  skipping upload to maven because not authorized to publish release versions yet
 
 #  - provider: script
 #    script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn clean deploy -DskipTests=true"
