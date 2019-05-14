@@ -1,9 +1,0 @@
-<settings >
-    <servers>
-        <server>
-            <id>maven.jenkins-ci.org</id>
-            <username>${env.USERNAME}</username>
-            <password>${env.PASSWORD}</password>
-        </server>
-    </servers>
-</settings>
