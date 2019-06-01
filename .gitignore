@@ -2,5 +2,5 @@ target
 work
 *.iml
 .idea
-.bashrc
-setVersion.sh
+pom.xml.releaseBackup
+release.properties
