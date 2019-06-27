@@ -7,7 +7,7 @@
         <version>3.4</version>
         <relativePath />
     </parent>
-
+    // Fixing some stuffs
     <groupId>io.jenkins.plugins</groupId>
     <artifactId>gitlab-api</artifactId>
     <version>1.0.3-SNAPSHOT</version>
