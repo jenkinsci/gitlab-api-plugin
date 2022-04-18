@@ -10,12 +10,12 @@
 
     <groupId>io.jenkins.plugins</groupId>
     <artifactId>gitlab-api</artifactId>
-    <version>${revision}${changelist}</version>
+    <version>${revision}-${changelist}</version>
     <packaging>hpi</packaging>
 
     <properties>
-        <revision>1.0.7</revision>
-        <changelist>-SNAPSHOT</changelist>
+        <revision>5.0.1</revision>
+        <changelist>999999-SNAPSHOT</changelist>
         <jenkins.version>2.289.3</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     </properties>
@@ -76,7 +76,7 @@
         <dependency>
             <groupId>org.gitlab4j</groupId>
             <artifactId>gitlab4j-api</artifactId>
-            <version>5.0.1</version>
+            <version>${revision}</version>
             <exclusions>
                 <!-- Provided by javax-activation-api plugin -->
                 <exclusion>
