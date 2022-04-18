@@ -57,7 +57,7 @@
             <dependency>
                 <groupId>io.jenkins.tools.bom</groupId>
                 <artifactId>bom-2.289.x</artifactId>
-                <version>1246.va_b_50630c1d19</version>
+                <version>1280.vd669827e38cd</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -66,9 +66,64 @@
 
     <dependencies>
         <dependency>
+            <groupId>io.jenkins.plugins</groupId>
+            <artifactId>javax-activation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jenkins.plugins</groupId>
+            <artifactId>jersey2-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.gitlab4j</groupId>
             <artifactId>gitlab4j-api</artifactId>
-	    <version>4.14.20</version>
+            <version>5.0.1</version>
+            <exclusions>
+                <!-- Provided by javax-activation-api plugin -->
+                <exclusion>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                </exclusion>
+                <!-- Provided by core -->
+                <exclusion>
+                    <groupId>jakarta.servlet</groupId>
+                    <artifactId>jakarta.servlet-api</artifactId>
+                </exclusion>
+                <!-- Provided by jersey2-api plugin -->
+                <exclusion>
+                    <groupId>org.glassfish.jersey.connectors</groupId>
+                    <artifactId>jersey-apache-connector</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.glassfish.jersey.core</groupId>
+                    <artifactId>jersey-client</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.glassfish.jersey.inject</groupId>
+                    <artifactId>jersey-hk2</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.glassfish.jersey.media</groupId>
+                    <artifactId>jersey-media-json-jackson</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.glassfish.jersey.media</groupId>
+                    <artifactId>jersey-media-multipart</artifactId>
+                </exclusion>
+                <!-- TODO Unneeded test library https://github.com/gitlab4j/gitlab4j-api/pull/840 -->
+                <exclusion>
+                    <groupId>uk.org.webcompere</groupId>
+                    <artifactId>system-stubs-jupiter</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Needed by jersey-apache-connector, but jersey2-api plugin declares it as optional -->
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>apache-httpcomponents-client-4-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>jackson2-api</artifactId>
         </dependency>
     </dependencies>
 
