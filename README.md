@@ -4,7 +4,7 @@
 [![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/gitlab-api.svg?color=blue)](https://plugins.jenkins.io/gitlab-api)
 
 # gitlab-api-plugin
-Wraps [Gitlab Java API](https://github.com/gmessner/gitlab4j-api/) by [gmessner](https://github.com/gmessner) into a plugin
+Wraps [GitLab4J API](https://github.com/gitlab4j/gitlab4j-api) libary into a plugin
 
 Install plugin with 
 
