@@ -1,4 +1,4 @@
 <?jelly escape-by-default='true'?>
 <div>
-    This plugin provides <a href="https://github.com/gmessner/gitlab4j-api">GitLab API</a> for other plugins.
+    This plugin provides <a href="https://github.com/gitlab4j/gitlab4j-api">GitLab4J API</a> for other plugins.
 </div>
