@@ -21,7 +21,7 @@
     </properties>
 
     <name>Gitlab API Plugin</name>
-    <description>Wraps Gitlab4J API into a plugin</description>
+    <description>Wraps GitLab4J API into a plugin</description>
     <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
 
     <issueManagement>
