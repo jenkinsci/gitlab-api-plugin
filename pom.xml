@@ -20,7 +20,7 @@
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     </properties>
 
-    <name>Gitlab API Plugin</name>
+    <name>GitLab API Plugin</name>
     <description>Wraps GitLab4J API into a plugin</description>
     <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
 
