@@ -10,12 +10,12 @@
 
     <groupId>io.jenkins.plugins</groupId>
     <artifactId>gitlab-api</artifactId>
-    <version>${revision}-${changelist}</version>
+    <version>${revision}</version>
     <packaging>hpi</packaging>
 
     <properties>
-        <revision>5.2.0</revision>
-        <changelist>999999-SNAPSHOT</changelist>
+        <revision>6.0.0-rc.1</revision>
+        <changelist>SNAPSHOT</changelist>
         <jenkins.version>2.361.4</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     </properties>
@@ -130,7 +130,7 @@
     <repositories>
         <repository>
             <id>repo.jenkins-ci.org</id>
-            <url>https://repo.jenkins-ci.org/public/</url>
+            <url>https://repo.jenkins-ci.org/ui/repos/tree/General/snapshots/</url>
         </repository>
     </repositories>
     <pluginRepositories>
