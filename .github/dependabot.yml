@@ -4,8 +4,6 @@ updates:
   directory: /
   schedule:
     interval: weekly
-  reviewers:
-      - "jetersen"
 - package-ecosystem: github-actions
   directory: /
   schedule:
