@@ -14,13 +14,13 @@
     <packaging>hpi</packaging>
 
     <properties>
-        <revision>5.6.0</revision>
+        <revision>6.1.0</revision>
         <changelist>999999-SNAPSHOT</changelist>
         <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
-        <jenkins.baseline>2.479</jenkins.baseline>
+        <jenkins.baseline>2.516</jenkins.baseline>
         <jenkins.version>${jenkins.baseline}.1</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
-        <hpi.bundledArtifacts>gitlab4j-api</hpi.bundledArtifacts>
+        <hpi.bundledArtifacts>gitlab4j-api,gitlab4j-models</hpi.bundledArtifacts>
         <hpi.strictBundledArtifacts>true</hpi.strictBundledArtifacts>
     </properties>
 
@@ -61,7 +61,7 @@
             <dependency>
                 <groupId>io.jenkins.tools.bom</groupId>
                 <artifactId>bom-${jenkins.baseline}.x</artifactId>
-                <version>3893.v213a_42768d35</version>
+                <version>5353.v3dec76e40169</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
