@@ -14,13 +14,13 @@
     <packaging>hpi</packaging>
 
     <properties>
-        <revision>5.6.0</revision>
+        <revision>6.1.0</revision>
         <changelist>999999-SNAPSHOT</changelist>
         <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
         <jenkins.baseline>2.479</jenkins.baseline>
-        <jenkins.version>${jenkins.baseline}.1</jenkins.version>
+        <jenkins.version>${jenkins.baseline}.3</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
-        <hpi.bundledArtifacts>gitlab4j-api</hpi.bundledArtifacts>
+        <hpi.bundledArtifacts>gitlab4j-api,gitlab4j-models</hpi.bundledArtifacts>
         <hpi.strictBundledArtifacts>true</hpi.strictBundledArtifacts>
     </properties>
 
@@ -61,7 +61,7 @@
             <dependency>
                 <groupId>io.jenkins.tools.bom</groupId>
                 <artifactId>bom-${jenkins.baseline}.x</artifactId>
-                <version>3893.v213a_42768d35</version>
+                <version>5054.v620b_5d2b_d5e6</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -75,7 +75,8 @@
         </dependency>
         <dependency>
             <groupId>io.jenkins.plugins</groupId>
-            <artifactId>jersey2-api</artifactId>
+            <artifactId>jersey3-api</artifactId>
+            <version>3.1.11-2.v4a_b_db_cf4557b_</version>
         </dependency>
         <dependency>
             <groupId>org.gitlab4j</groupId>
@@ -128,6 +129,7 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>jackson2-api</artifactId>
+            <version>2.20.0-417.va_5311a_823a_b_8</version>
         </dependency>
     </dependencies>
 
@@ -135,6 +137,10 @@
         <repository>
             <id>repo.jenkins-ci.org</id>
             <url>https://repo.jenkins-ci.org/public/</url>
+        </repository>
+        <repository>
+            <id>incrementals</id>
+            <url>https://repo.jenkins-ci.org/incrementals/</url>
         </repository>
     </repositories>
     <pluginRepositories>
