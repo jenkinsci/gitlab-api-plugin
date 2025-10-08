@@ -93,7 +93,7 @@
                     <groupId>jakarta.servlet</groupId>
                     <artifactId>jakarta.servlet-api</artifactId>
                 </exclusion>
-                <!-- Provided by jersey2-api plugin -->
+                <!-- Provided by jersey3-api plugin -->
                 <exclusion>
                     <groupId>org.glassfish.jersey.connectors</groupId>
                     <artifactId>jersey-apache-connector</artifactId>
