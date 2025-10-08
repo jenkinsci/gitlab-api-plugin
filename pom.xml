@@ -83,7 +83,7 @@
             <artifactId>gitlab4j-api</artifactId>
             <version>${revision}</version>
             <exclusions>
-                <!-- Provided by javax-activation-api plugin -->
+                <!-- Provided by jakarta-activation-api plugin -->
                 <exclusion>
                     <groupId>jakarta.activation</groupId>
                     <artifactId>jakarta.activation-api</artifactId>
