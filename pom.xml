@@ -17,7 +17,7 @@
         <revision>6.1.0</revision>
         <changelist>999999-SNAPSHOT</changelist>
         <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
-        <jenkins.baseline>2.492</jenkins.baseline>
+        <jenkins.baseline>2.504.3</jenkins.baseline>
         <jenkins.version>${jenkins.baseline}.3</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
         <hpi.bundledArtifacts>gitlab4j-api,gitlab4j-models</hpi.bundledArtifacts>
