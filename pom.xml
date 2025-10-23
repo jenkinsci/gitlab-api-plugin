@@ -29,7 +29,7 @@
     <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
 
     <issueManagement>
-        <url>https://issues.jenkins-ci.org/browse/JENKINS-57445?jql=project%20%3D%20JENKINS%20AND%20component%20%3D%20gitlab-api-plugin</url>
+        <url>https://issues.jenkins.io/issues/?jql=resolution%20is%20EMPTY%20and%20component%3D25128</url>
         <system>JIRA</system>
     </issueManagement>
 
