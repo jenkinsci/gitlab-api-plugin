@@ -82,11 +82,6 @@
             <artifactId>gitlab4j-api</artifactId>
             <version>${revision}</version>
             <exclusions>
-                <!-- Provided by jakarta-activation-api plugin -->
-                <exclusion>
-                    <groupId>jakarta.activation</groupId>
-                    <artifactId>jakarta.activation-api</artifactId>
-                </exclusion>
                 <!-- Provided by core -->
                 <exclusion>
                     <groupId>jakarta.servlet</groupId>
