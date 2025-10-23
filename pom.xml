@@ -113,11 +113,6 @@
                     <groupId>org.glassfish.jersey.media</groupId>
                     <artifactId>jersey-media-multipart</artifactId>
                 </exclusion>
-                <!-- TODO Unneeded test library https://github.com/gitlab4j/gitlab4j-api/pull/840 -->
-                <exclusion>
-                    <groupId>uk.org.webcompere</groupId>
-                    <artifactId>system-stubs-jupiter</artifactId>
-                </exclusion>
             </exclusions>
         </dependency>
         <!-- Needed by jersey-apache-connector, but jersey2-api plugin declares it as optional -->
