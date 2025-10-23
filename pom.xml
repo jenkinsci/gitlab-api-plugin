@@ -61,7 +61,7 @@
             <dependency>
                 <groupId>io.jenkins.tools.bom</groupId>
                 <artifactId>bom-${jenkins.baseline}.x</artifactId>
-                <version>5473.vb_9533d9e5d88</version>
+                <version>5577.vea_979d35b_b_ff</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -76,8 +76,6 @@
         <dependency>
             <groupId>io.jenkins.plugins</groupId>
             <artifactId>jersey3-api</artifactId>
-            <!-- TODO until jersey3-api is in BOM -->
-            <version>3.1.11-4.v77818819c2e1</version>
         </dependency>
         <dependency>
             <groupId>org.gitlab4j</groupId>
@@ -130,7 +128,6 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>jackson2-api</artifactId>
-            <version>2.20.0-420.v8a_08b_d57ca_05</version>
         </dependency>
     </dependencies>
 
