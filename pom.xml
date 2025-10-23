@@ -110,11 +110,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- Needed by jersey-apache-connector, but jersey2-api plugin declares it as optional -->
-        <dependency>
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>apache-httpcomponents-client-4-api</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>jackson2-api</artifactId>
