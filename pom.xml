@@ -14,13 +14,13 @@
     <packaging>hpi</packaging>
 
     <properties>
-        <revision>5.8.1</revision>
+        <revision>6.2.0</revision>
         <changelist>999999-SNAPSHOT</changelist>
         <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
-        <jenkins.baseline>2.492</jenkins.baseline>
+        <jenkins.baseline>2.504</jenkins.baseline>
         <jenkins.version>${jenkins.baseline}.3</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
-        <hpi.bundledArtifacts>gitlab4j-api</hpi.bundledArtifacts>
+        <hpi.bundledArtifacts>gitlab4j-api,gitlab4j-models</hpi.bundledArtifacts>
         <hpi.strictBundledArtifacts>true</hpi.strictBundledArtifacts>
     </properties>
 
@@ -29,7 +29,7 @@
     <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
 
     <issueManagement>
-        <url>https://issues.jenkins-ci.org/browse/JENKINS-57445?jql=project%20%3D%20JENKINS%20AND%20component%20%3D%20gitlab-api-plugin</url>
+        <url>https://issues.jenkins.io/issues/?jql=resolution%20is%20EMPTY%20and%20component%3D25128</url>
         <system>JIRA</system>
     </issueManagement>
 
@@ -61,7 +61,7 @@
             <dependency>
                 <groupId>io.jenkins.tools.bom</groupId>
                 <artifactId>bom-${jenkins.baseline}.x</artifactId>
-                <version>5473.vb_9533d9e5d88</version>
+                <version>5659.vecf9e2dc5a_ed</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -71,59 +71,28 @@
     <dependencies>
         <dependency>
             <groupId>io.jenkins.plugins</groupId>
-            <artifactId>javax-activation-api</artifactId>
+            <artifactId>jakarta-activation-api</artifactId>
         </dependency>
         <dependency>
             <groupId>io.jenkins.plugins</groupId>
-            <artifactId>jersey2-api</artifactId>
+            <artifactId>jersey3-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.gitlab4j</groupId>
             <artifactId>gitlab4j-api</artifactId>
             <version>${revision}</version>
             <exclusions>
-                <!-- Provided by javax-activation-api plugin -->
-                <exclusion>
-                    <groupId>jakarta.activation</groupId>
-                    <artifactId>jakarta.activation-api</artifactId>
-                </exclusion>
                 <!-- Provided by core -->
                 <exclusion>
                     <groupId>jakarta.servlet</groupId>
                     <artifactId>jakarta.servlet-api</artifactId>
                 </exclusion>
-                <!-- Provided by jersey2-api plugin -->
-                <exclusion>
-                    <groupId>org.glassfish.jersey.connectors</groupId>
-                    <artifactId>jersey-apache-connector</artifactId>
-                </exclusion>
+                <!-- Provided by jersey3-api plugin -->
                 <exclusion>
                     <groupId>org.glassfish.jersey.core</groupId>
                     <artifactId>jersey-client</artifactId>
                 </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.inject</groupId>
-                    <artifactId>jersey-hk2</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.media</groupId>
-                    <artifactId>jersey-media-json-jackson</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.media</groupId>
-                    <artifactId>jersey-media-multipart</artifactId>
-                </exclusion>
-                <!-- TODO Unneeded test library https://github.com/gitlab4j/gitlab4j-api/pull/840 -->
-                <exclusion>
-                    <groupId>uk.org.webcompere</groupId>
-                    <artifactId>system-stubs-jupiter</artifactId>
-                </exclusion>
             </exclusions>
-        </dependency>
-        <!-- Needed by jersey-apache-connector, but jersey2-api plugin declares it as optional -->
-        <dependency>
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>apache-httpcomponents-client-4-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
